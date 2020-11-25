@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { ProjectState } from "../projectState";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
 
 const ProjectDetail = () => {
   const history = useHistory();
@@ -20,7 +22,12 @@ const ProjectDetail = () => {
   return (
     <>
       {project && (
-        <Details>
+        <Details
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
           <HeadLine>
             <h2>{project.title}</h2>
             <img src={project.mainImg} alt="project" />
@@ -34,13 +41,24 @@ const ProjectDetail = () => {
               />
             ))}
           </TBD1>
+          <ImageDisplay>
+            <img src={project.secondaryImg} alt="projectt" />
+          </ImageDisplay>
         </Details>
       )}
     </>
   );
 };
+const ImageDisplay = styled.div`
+  min-height: 50vh;
+  img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+`;
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 const HeadLine = styled.div`
