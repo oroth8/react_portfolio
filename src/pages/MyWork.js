@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Images
-import athlete from "../img/athlete-small.png";
-import theracer from "../img/theracer-small.png";
-import goodtimes from "../img/goodtimes-small.png";
 import styled from "styled-components";
+import githubf from "../img/githubfinderss.png";
+import ck from "../img/CKscreenshot.png";
+import storybook from "../img/storybook.PNG";
+import ecom from "../img/screenshot.PNG";
+import codegig from "../img/codegig.PNG";
+import weatherApp from "../img/weatherApp.PNG";
 
 import { motion } from "framer-motion";
 import {
@@ -32,26 +35,51 @@ const MyWork = () => {
         <Frame4 variants={slider}></Frame4>
       </motion.div>
       <Project>
-        <motion.h2 variants={fade}>The Athlete</motion.h2>
+        <motion.h2 variants={fade}>Github Finder</motion.h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
-        <Link to="/work/the-athlete">
+        <Link to="/work/github-finder">
           <Hide>
-            <motion.img variants={photoAnim} src={athlete} alt="athlete" />
+            <motion.img
+              variants={photoAnim}
+              src={githubf}
+              alt="Github Finder"
+            />
           </Hide>
         </Link>
       </Project>
       <Project>
-        <h2>The Racer</h2>
+        <h2>Contact Keeper</h2>
         <div className="line"></div>
-        <Link to="/work/the-racer">
-          <img src={theracer} alt="theracer" />
+        <Link to="/work/contact-keeper">
+          <img src={ck} alt="Contact Keeper" />
         </Link>
       </Project>
       <Project>
-        <h2>Goodtimes</h2>
+        <h2>Story Book</h2>
         <div className="line"></div>
-        <Link to="/work/good-times">
-          <img src={goodtimes} alt="good times" />
+        <Link to="/work/story-book">
+          <img src={storybook} alt="story book" />
+        </Link>
+      </Project>
+      <Project>
+        <h2>Ecommerce Site</h2>
+        <div className="line"></div>
+        <Link to="/work/ecom">
+          <img src={ecom} alt="ecom" />
+        </Link>
+      </Project>
+      <Project>
+        <h2>Coding Gig Finder</h2>
+        <div className="line"></div>
+        <Link to="/work/gig-finder">
+          <img src={codegig} alt="gig finder" />
+        </Link>
+      </Project>
+      <Project>
+        <h2>Weather App</h2>
+        <div className="line"></div>
+        <Link to="/work/weather-app">
+          <img src={weatherApp} alt="weather app" />
         </Link>
       </Project>
     </Work>
