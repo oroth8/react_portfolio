@@ -10,6 +10,8 @@ import codegig from "../img/codegig.PNG";
 import weatherApp from "../img/weatherApp.PNG";
 
 import { motion } from "framer-motion";
+import { useScroll } from "../components/useScroll";
+import ScrollTop from "../components/ScrollTop";
 import {
   pageAnimation,
   fade,
@@ -20,6 +22,13 @@ import {
 } from "../animation";
 
 const MyWork = () => {
+  // fade animation controllers
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
+  const [element3, controls3] = useScroll();
+  const [element4, controls4] = useScroll();
+  const [element5, controls5] = useScroll();
+
   return (
     <Work
       variants={pageAnimation}
@@ -47,41 +56,67 @@ const MyWork = () => {
           </Hide>
         </Link>
       </Project>
-      <Project>
+      <Project
+        ref={element}
+        variants={fade}
+        animate={controls}
+        initial="hidden"
+      >
         <h2>Contact Keeper</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/contact-keeper">
           <img src={ck} alt="Contact Keeper" />
         </Link>
       </Project>
-      <Project>
+      <Project
+        ref={element2}
+        variants={fade}
+        animate={controls2}
+        initial="hidden"
+      >
         <h2>Story Book</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/story-book">
           <img src={storybook} alt="story book" />
         </Link>
       </Project>
-      <Project>
+      <Project
+        ref={element3}
+        variants={fade}
+        animate={controls3}
+        initial="hidden"
+      >
         <h2>Ecommerce Site</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/ecom">
           <img src={ecom} alt="ecom" />
         </Link>
       </Project>
-      <Project>
+      <Project
+        ref={element4}
+        variants={fade}
+        animate={controls4}
+        initial="hidden"
+      >
         <h2>Coding Gig Finder</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/gig-finder">
           <img src={codegig} alt="gig finder" />
         </Link>
       </Project>
-      <Project>
+      <Project
+        ref={element5}
+        variants={fade}
+        animate={controls5}
+        initial="hidden"
+      >
         <h2>Weather App</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/weather-app">
           <img src={weatherApp} alt="weather app" />
         </Link>
       </Project>
+      <ScrollTop />
     </Work>
   );
 };
@@ -94,7 +129,7 @@ const Work = styled(motion.div)`
     padding: 1rem 0rem;
   }
 `;
-const Project = styled.div`
+const Project = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
